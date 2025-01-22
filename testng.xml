@@ -1,13 +1,13 @@
 <suite name="Automation practice Test Suite" parallel="methods" thread-counts="4" verbose="1">
   <test name="UI Automation Test">
-/<arameter name="browser" value="chrome" />
+  <!--parameter name="browser" value="chrome" />
   <parameter name="isLamdaTest" value="false" />
-  <parameter name="isHeadLess" value="true" />
+  <parameter name="isHeadLess" value="true" /-->
   
-  <!-- reading values from maven surefire plugin>
+  <!--reading values from maven surefire plugin-->
   <parameter name="browser" value="${browser}" />
   <parameter name="isLambdatest" value="${isLambdaTest}" />
-  <parameter name="isHeadLess" value="${isHeadLess}" /-->
+  <parameter name="isHeadLess" value="${isHeadLess}" />
     <classes>
        <class name="com.ui.tests.LoginTest"/>
        <class name="com.ui.tests.LoginTestWithInvalidCreds"/>
