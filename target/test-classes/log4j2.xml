@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- Appenders means where do you want your logs to be shown-->
+		<!-- First appender is Console whose job is to show logs on console.
+		Inside console we need to configure target. Target means where exactly
+		the console logs need to be shown -->
+		
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %level %logger::%M::%L %msg %n">
+				<!-- %d signifies the timestamp in the given format
+				     
+				     %t unique thread name executing the test
+                     
+                     %level- level information i.e. which type of log is this like warning log, informational log , error log, fatal log etc
+                     
+                     %logger- class name that is going to generate the logs
+                     
+                     %M -will give information of method name which is providing the logs
+     
+                     %L- will give the line number executed to give that log
+                     
+                     %msg-message in the logs
+     
+                     %n- once the entire log is printed then go to next line -->
+			</PatternLayout>
+		</Console>
+		
+		<!-- 2nd appender is File i.e. in which logs will be generated. So whatever logs will be generated on console same will be written 
+		     in this file too -->	
+		<File name="Filelogger" fileName="logs/automation.log" append="false">
+			<PatternLayout
+					pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %level %logger %msg %n">
+			</PatternLayout>
+		</File>
+			<!-- append =false meaning I don't want to append the new logs into the old file. I want the output of logs in the 
+			automation.log file in the abouve format -->
+		
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<!--Root means from which level you want to start logging i.e. whenever you'll write logger.info then logs will be displayed on 
+			console and in automation.log file-->
+			<AppenderRef ref="Console"></AppenderRef>
+			<AppenderRef ref="Filelogger"></AppenderRef>
+		</Root>
+	</Loggers>
+	
+</Configuration>
